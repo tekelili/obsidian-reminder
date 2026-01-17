@@ -1,9 +1,9 @@
 # Quick Start
 
-You can [set reminders](/guide/set-reminders.html) by putting `(@YYYY-MM-DD HH:mm)` to the TODO list.
+You can [set reminders](/guide/set-reminders.html) by putting `[scheduled:: YYYY-MM-DD HH:mm]` to the TODO list.
 
 ```markdown
-- [ ] Task 1 (@2021-09-15 20:40)
+- [ ] Task 1 [scheduled:: 2021-09-15 20:40]
 ```
 
 Reminders set for all files can be viewed in a [list view](/guide/list-reminders.md).

@@ -2,16 +2,16 @@
 
 ## Reminder Format
 
-You can set reminders by putting `(@YYYY-MM-DD HH:mm)` to the TODO list.
+You can set reminders by putting `[scheduled:: YYYY-MM-DD HH:mm]` to the TODO list.
 
 ```markdown
-- [ ] Task 1 (@2021-09-15 20:40)
+- [ ] Task 1 [scheduled:: 2021-09-15 20:40]
 ```
 
 Time is omittable.
 
 ```markdown
-- [ ] Task 1 (@2021-09-15)
+- [ ] Task 1 [scheduled:: 2021-09-15]
 ```
 
 When you omit the time, reminder will be notified at [default reminder time](/setting/#reminder-time).
@@ -47,11 +47,11 @@ There are multiple ways to display the calendar popup.
 
 ### Key input trigger (Desktop only)
 
-When you input `(@` in TODO list item, you will see calendar/time picker popup.
+When you input `[scheduled:: ` in TODO list item, you will see calendar/time picker popup.
 
 <img :src="$withBase('/images/reminder-input-support.png')" width="400px">
 
-This popup trigger `(@` can be changed with [calendar popup trigger](/setting/#calendar-popup-trigger) setting.
+This popup trigger `[scheduled:: ` can be changed with [calendar popup trigger](/setting/#calendar-popup-trigger) setting.
 
 In this popup, you can select date and time by calendar and time picker dropdown.
 
@@ -124,7 +124,7 @@ First, you have to set [Link dates to daily notes](/setting/#link-dates-to-daily
 After that, the date part of the reminder will become the link.
 
 ```markdown
-- [ ] Task 1 (@[[2021-09-15]] 20:40)
+- [ ] Task 1 [scheduled:: [[2021-09-15]] 20:40]
 ```
 
 ::: tip
@@ -136,5 +136,5 @@ You need to change existing reminder date manually.
 You can create a TODO item that is not a reminder by formatting it as `- [-] xxx`.
 
 ```markdown
-- [-] Task 1 (@2024-12-24)
+- [-] Task 1 [scheduled:: 2024-12-24]
 ```

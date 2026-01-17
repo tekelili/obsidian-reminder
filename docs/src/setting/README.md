@@ -41,7 +41,7 @@ Trigger to show calendar popup.
 
 - Type: `string`
 - Format: Any string. If you make this setting empty string, calendar popup will be disabled.
-- Default: `(@`
+- Default: `[scheduled:: `
 
 ## Primary reminder format
 
@@ -66,13 +66,13 @@ You can link dates to daily notes with this option.
 Example (OFF)
 
 ```markdown
-- [ ] Task (@2021-09-15 10:00)
+- [ ] Task [scheduled:: 2021-09-15 10:00]
 ```
 
 Example (ON)
 
 ```markdown
-- [ ] Task ([[@2021-09-15]] 10:00)
+- [ ] Task ([[@2021-09-15]] 10:00]
 ```
 
 ## Remind me later

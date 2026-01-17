@@ -9,9 +9,9 @@
 You can [set reminders](https://uphy.github.io/obsidian-reminder/guide/set-reminders.html) for TODO list items with the following format.
 
 ```markdown
-- [ ] This is a sample task with reminder (@2021-08-14)
-- [ ] Also you can specify time (@2021-08-14 09:37)
-- [x] You will not be notified about the reminders you have already checked. (@2021-08-14)
+- [ ] This is a sample task with reminder [scheduled:: 2021-08-14]
+- [ ] Also you can specify time [scheduled:: 2021-08-14 09:37]
+- [x] You will not be notified about the reminders you have already checked. [scheduled:: 2021-08-14]
 ```
 
 <img src="https://raw.githubusercontent.com/uphy/obsidian-reminder/master/images/input-reminder-time.gif" width="600" />
@@ -34,7 +34,6 @@ If you click `Mark as Done`, your check list item will be checked.
 Alternatively, you can postpone the reminder by selecting `Remind Me Later`.
 
 <img src="https://raw.githubusercontent.com/uphy/obsidian-reminder/master/images/reminder-notification2.png" width="600" />
-
 
 #### Interoperability with other plugins
 

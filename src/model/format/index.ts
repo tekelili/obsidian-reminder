@@ -52,7 +52,7 @@ export function setReminderFormatConfig(config: ReminderFormatConfig) {
 export const reminderPluginReminderFormat = new ReminderFormatType(
   "ReminderPluginReminderFormat",
   "Reminder plugin format",
-  "(@2021-09-08)",
+  "[scheduled:: 2021-09-08]",
   DefaultReminderFormat.instance,
   true,
 );

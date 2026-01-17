@@ -8,7 +8,7 @@ import type { ReminderModel } from "./reminder-base";
 
 class DefaultReminderModel implements ReminderModel {
   public static readonly regexp =
-    /^(?<title1>.*?)\(@(?<time>.+?)\)(?<title2>.*)$/;
+    /^(?<title1>.*?)\[scheduled:: (?<time>.+?)\](?<title2>.*)$/;
 
   static parse(
     line: string,
@@ -63,7 +63,7 @@ class DefaultReminderModel implements ReminderModel {
     return this.toMarkdown().length - this.title2.length;
   }
   toMarkdown(): string {
-    const result = `${this.title1}(@${this.time})${this.title2}`;
+    const result = `${this.title1} [scheduled:: ${this.time}] ${this.title2}`;
     if (!this.linkDatesToDailyNotes) {
       return result;
     }

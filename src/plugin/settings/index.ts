@@ -167,8 +167,8 @@ export class Settings {
       .key("autoCompleteTrigger")
       .name("Calendar popup trigger")
       .desc("Trigger text to show calendar popup")
-      .text("(@")
-      .placeHolder("(@")
+      .text("[scheduled:: ")
+      .placeHolder("[scheduled:: ")
       .onAnyValueChanged((context) => {
         const value = this.autoCompleteTrigger.value;
         context.setInfo(

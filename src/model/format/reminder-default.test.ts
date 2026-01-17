@@ -8,7 +8,7 @@ describe("DefaultReminderFormat", (): void => {
   const util = new ReminderFormatTestUtil(() => new DefaultReminderFormat());
   test("parse", (): void => {
     util.testParse({
-      inputMarkdown: "- [ ] Task1 (@2021-09-14)",
+      inputMarkdown: "- [ ] Task1 [scheduled:: 2021-09-14]",
       expectedTime: "2021-09-14",
       expectedTitle: "Task1",
       configFunc: (config) => {
@@ -19,7 +19,7 @@ describe("DefaultReminderFormat", (): void => {
       },
     });
     util.testParse({
-      inputMarkdown: "- [ ] Task1 (@2021-09-14 10:00)",
+      inputMarkdown: "- [ ] Task1 [scheduled:: 2021-09-14T10:00]",
       expectedTime: "2021-09-14 10:00",
       expectedTitle: "Task1",
       configFunc: (config) => {
@@ -32,7 +32,7 @@ describe("DefaultReminderFormat", (): void => {
   });
   test("parse - link dates to daily notes", (): void => {
     util.testParse({
-      inputMarkdown: "- [ ] Task1 (@[[2021-09-14]] 10:00)",
+      inputMarkdown: "- [ ] Task1 [scheduled:: [[2021-09-14]] 10:00]",
       expectedTime: "2021-09-14 10:00",
       expectedTitle: "Task1",
       configFunc: (config) => {
@@ -43,7 +43,7 @@ describe("DefaultReminderFormat", (): void => {
       },
     });
     util.testParse({
-      inputMarkdown: "- [ ] Task1 (@[[2021-09-14]])",
+      inputMarkdown: "- [ ] Task1 [scheduled:: [[2021-09-14]]]",
       expectedTime: "2021-09-14",
       expectedTitle: "Task1",
       configFunc: (config) => {
@@ -56,12 +56,12 @@ describe("DefaultReminderFormat", (): void => {
   });
   test("modify", async () => {
     await util.testModify({
-      inputMarkdown: "- [ ] Task1 (@2021-09-14)",
+      inputMarkdown: "- [ ] Task1 [scheduled:: 2021-09-14]",
       edit: {
         checked: true,
-        time: new DateTime(moment("2021-09-15 10:00"), true),
+        time: new DateTime(moment("2021-09-15T10:00"), true),
       },
-      expectedMarkdown: "- [x] Task1 (@2021-09-15 10:00)",
+      expectedMarkdown: "- [x] Task1 [scheduled:: 2021-09-15T10:00]",
       configFunc: (config) => {
         config.setParameterValue(
           ReminderFormatParameterKey.linkDatesToDailyNotes,
@@ -72,12 +72,12 @@ describe("DefaultReminderFormat", (): void => {
   });
   test("modify - link dates to daily notes", async () => {
     await util.testModify({
-      inputMarkdown: "- [ ] Task1 (@[[2021-09-14]] 09:00)",
+      inputMarkdown: "- [ ] Task1 [scheduled:: [[2021-09-14]] 09:00)",
       edit: {
         checked: true,
         time: new DateTime(moment("2021-09-15 10:00"), true),
       },
-      expectedMarkdown: "- [x] Task1 (@[[2021-09-15]] 10:00)",
+      expectedMarkdown: "- [x] Task1 [scheduled:: [[2021-09-15]] 10:00)",
       configFunc: (config) => {
         config.setParameterValue(
           ReminderFormatParameterKey.linkDatesToDailyNotes,
